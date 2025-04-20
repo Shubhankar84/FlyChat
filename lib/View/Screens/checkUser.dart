@@ -4,12 +4,14 @@ import 'HomePage.dart'; // Import your HomePage
 import 'LoginPage.dart'; // Import your LoginPage
 
 class CheckUserScreen extends StatefulWidget {
+  const CheckUserScreen({super.key});
+
   @override
   _CheckUserScreenState createState() => _CheckUserScreenState();
 }
 
 class _CheckUserScreenState extends State<CheckUserScreen> {
-  bool _isLoading = true; // Variable to manage loading state
+  final bool _isLoading = true; // Variable to manage loading state
 
   @override
   void initState() {
@@ -21,7 +23,7 @@ class _CheckUserScreenState extends State<CheckUserScreen> {
   void _checkUser() async {
     User? user = FirebaseAuth.instance.currentUser;
     // Wait for 2 seconds for demo purpose (you can remove it in production)
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     
     if (user != null) {
       // If the user is logged in, navigate to HomePage
@@ -43,7 +45,7 @@ class _CheckUserScreenState extends State<CheckUserScreen> {
     return Scaffold(
       body: Center(
         child: _isLoading
-            ? CircularProgressIndicator() // Show loading indicator while checking user status
+            ? const CircularProgressIndicator() // Show loading indicator while checking user status
             : Container(), // Just a fallback empty container (though this state won't happen in this case)
       ),
     );

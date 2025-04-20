@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fly_chat/Services/alertService.dart';
-import 'package:fly_chat/models/user.dart' as model;  // Adjust the import based on your structure
-
+import 'package:fly_chat/models/user.dart'
+    as model; // Adjust the import based on your structure
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -12,13 +11,31 @@ class AuthService {
 
   AuthService();
 
+  // get User Details
+  // get User Details
+  Future<model.User?> getUserDetails(String uid) async {
+    try {
+      DocumentSnapshot userDoc =
+          await _firestore.collection('users').doc(uid).get();
+
+      if (userDoc.exists && userDoc.data() != null) {
+        return model.User.fromMap(userDoc.data() as Map<String, dynamic>);
+      } else {
+        return null;
+      }
+    } catch (e) {
+      print("Error fetching user details: $e");
+      return null;
+    }
+  }
+
   // Sign Up user with email and password
   Future<bool> signUp({
     required String name,
     required String email,
     required String password,
     required String mobileNo,
-    required BuildContext context,  // Context needed for toast display
+    required BuildContext context, // Context needed for toast display
   }) async {
     try {
       // Create a new user with email and password
@@ -37,12 +54,16 @@ class AuthService {
           uid: user.uid,
           name: name,
           email: email,
-          password: password,  // Storing plain passwords is not recommended. Consider encrypting.
-          mobileNo: mobileNo, 
+          password:
+              password, // Storing plain passwords is not recommended. Consider encrypting.
+          mobileNo: mobileNo,
         );
 
         // Save the user data to Firestore
-        await _firestore.collection('users').doc(user.uid).set(newUser.toJson());
+        await _firestore
+            .collection('users')
+            .doc(user.uid)
+            .set(newUser.toJson());
 
         // Show toast upon success
         // _alertService.showToast(
@@ -70,7 +91,7 @@ class AuthService {
   Future<bool> signIn({
     required String email,
     required String password,
-    required BuildContext context,  // Context needed for toast display
+    required BuildContext context, // Context needed for toast display
   }) async {
     try {
       // Sign in with email and password
@@ -101,7 +122,7 @@ class AuthService {
 
   // Sign out the current user
   Future<void> signOut({
-    required BuildContext context,  // Context needed for toast display
+    required BuildContext context, // Context needed for toast display
   }) async {
     try {
       await _auth.signOut();

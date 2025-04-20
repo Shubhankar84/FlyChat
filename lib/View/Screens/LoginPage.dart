@@ -6,6 +6,8 @@ import 'package:fly_chat/View/Screens/SplashScreen.dart';
 import 'package:fly_chat/constants.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -62,12 +64,12 @@ class _LoginPageState extends State<LoginPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text("Error"),
+        title: const Text("Error"),
         content: Text(message),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text("OK"),
+            child: const Text("OK"),
           ),
         ],
       ),
@@ -97,10 +99,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             // Login form starts here
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -112,34 +114,34 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.green[800],
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     'Login to your account',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   // Email TextField
                   TextField(
                     controller: _emailController,
                     decoration: InputDecoration(
                       labelText: "Email",
-                      prefixIcon: Icon(Icons.email),
+                      prefixIcon: const Icon(Icons.email),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                     ),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   // Password TextField
                   TextField(
                     controller: _passwordController,
                     obscureText: !_isPasswordVisible,
                     decoration: InputDecoration(
                       labelText: "Password",
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _isPasswordVisible
@@ -158,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -172,18 +174,18 @@ class _LoginPageState extends State<LoginPage> {
                               });
                             },
                           ),
-                          Text("Remember Me"),
+                          const Text("Remember Me"),
                         ],
                       ),
                       TextButton(
                         onPressed:
                             () {}, // Implement forgot password functionality here
-                        child: Text("Forgot Password?",
+                        child: const Text("Forgot Password?",
                             style: TextStyle(color: Colors.green)),
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   // Login Button
                   SizedBox(
                     width: double.infinity,
@@ -199,9 +201,9 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       child: _isLoading
-                          ? CircularProgressIndicator(
+                          ? const CircularProgressIndicator(
                               color: Colors.white) // Show loading indicator
-                          : Text(
+                          : const Text(
                               'Login',
                               style: TextStyle(
                                 fontSize: 18,
@@ -210,11 +212,11 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don't have an account?"),
+                      const Text("Don't have an account?"),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -223,7 +225,7 @@ class _LoginPageState extends State<LoginPage> {
                                 builder: (context) => SignupPage()),
                           );
                         },
-                        child: Text("Sign up",
+                        child: const Text("Sign up",
                             style: TextStyle(color: Colors.green)),
                       ),
                     ],

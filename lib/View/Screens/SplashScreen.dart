@@ -1,7 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:fly_chat/View/Screens/ChatPage.dart';
-import 'package:fly_chat/View/Screens/LoginPage.dart';
 import 'package:fly_chat/View/Screens/checkUser.dart';
 
 class SplashScreen extends StatefulWidget {

@@ -1,3 +1,4 @@
+import 'package:fly_chat/Services/blockTimerService.dart';
 import 'package:get_it/get_it.dart';
 import 'package:fly_chat/Services/authServices.dart';
 import 'package:fly_chat/Services/chatServices.dart';
@@ -9,4 +10,5 @@ void setupServiceLocator() {
   getIt.registerLazySingleton<AuthService>(() => AuthService());
   getIt.registerLazySingleton<ChatService>(() => ChatService());
   getIt.registerLazySingleton<MediaService>(() => MediaService());
+  // getIt.registerLazySingleton<TimerService>(() => TimerService());
 }

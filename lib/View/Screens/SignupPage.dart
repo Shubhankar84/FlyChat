@@ -5,6 +5,8 @@ import 'package:fly_chat/View/Screens/LoginPage.dart'; // Import your LoginPage
 
 // Signup Page
 class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
+
   @override
   _SignupPageState createState() => _SignupPageState();
 }
@@ -45,12 +47,12 @@ class _SignupPageState extends State<SignupPage> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Error'),
+            title: const Text('Error'),
             content: Text(e.toString()),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(),
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           ),
@@ -83,7 +85,7 @@ class _SignupPageState extends State<SignupPage> {
                     top: 40,
                     left: 16,
                     child: IconButton(
-                      icon: Icon(Icons.arrow_back, color: Colors.white),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () {
                         Navigator.pop(context);
                       },
@@ -91,10 +93,10 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               // Signup form starts here
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -106,20 +108,20 @@ class _SignupPageState extends State<SignupPage> {
                         color: Colors.green[800],
                       ),
                     ),
-                    SizedBox(height: 5),
-                    Text(
+                    const SizedBox(height: 5),
+                    const Text(
                       'Create your new account',
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.grey,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     // Full Name TextField
                     TextFormField(
                       decoration: InputDecoration(
                         labelText: "Full Name",
-                        prefixIcon: Icon(Icons.person),
+                        prefixIcon: const Icon(Icons.person),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15.0),
                         ),
@@ -134,12 +136,12 @@ class _SignupPageState extends State<SignupPage> {
                         _name = value!;
                       },
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     // Email TextField
                     TextFormField(
                       decoration: InputDecoration(
                         labelText: "Email",
-                        prefixIcon: Icon(Icons.email),
+                        prefixIcon: const Icon(Icons.email),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15.0),
                         ),
@@ -154,12 +156,12 @@ class _SignupPageState extends State<SignupPage> {
                         _email = value!;
                       },
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     // Mobile Number TextField
                     TextFormField(
                       decoration: InputDecoration(
                         labelText: "Mobile Number",
-                        prefixIcon: Icon(Icons.phone),
+                        prefixIcon: const Icon(Icons.phone),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15.0),
                         ),
@@ -174,13 +176,13 @@ class _SignupPageState extends State<SignupPage> {
                         _mobileNo = value!;
                       },
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     // Password TextField
                     TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: "Password",
-                        prefixIcon: Icon(Icons.lock),
+                        prefixIcon: const Icon(Icons.lock),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15.0),
                         ),
@@ -195,7 +197,7 @@ class _SignupPageState extends State<SignupPage> {
                         _password = value!;
                       },
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     // Signup Button
                     SizedBox(
                       width: double.infinity,
@@ -207,7 +209,7 @@ class _SignupPageState extends State<SignupPage> {
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Sign Up',
                           style: TextStyle(
                             fontSize: 18,
@@ -216,16 +218,16 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Already have an account?"),
+                        const Text("Already have an account?"),
                         TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text("Login", style: TextStyle(color: Colors.green)),
+                          child: const Text("Login", style: TextStyle(color: Colors.green)),
                         ),
                       ],
                     ),
